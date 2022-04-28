@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "UseFormCollectionIndex";
+    Layout = null;
+}
+
+<h4>THÔNG TIN SINH VIÊN</h4>
+<form name="f1" action="/SinhVien_61134177/UseFormCollection" method="post">
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    Mã sinh viên:
+                </td>
+                <td>
+                    <input type="text" name="Id" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Họ và tên:
+                </td>
+                <td>
+                    <input type="text" name="Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Điểm:
+                </td>
+                <td>
+                    <input type="text" name="Marks" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="Đăng kí" value="Đăng kí" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

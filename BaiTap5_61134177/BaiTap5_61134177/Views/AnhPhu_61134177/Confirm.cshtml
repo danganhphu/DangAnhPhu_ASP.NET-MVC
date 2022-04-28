@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h4>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÍ</h4>
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td rowspan="6">
+                        <a href="@Url.Action("images/AnhPhu_61134177")">
+                            <img src="@ViewBag.Avatar" width="100" height="100" />
+                        </a>
+                    </td>
+                    <td>Mã nhân viên:</td>
+                    <td>@ViewBag.EmpId</td>
+                </tr>
+                <tr>
+                    <td>Họ và tên:</td>
+                    <td>@ViewBag.Name</td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh:</td>
+                    <td>@ViewBag.BirthOfDate</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@ViewBag.Email</td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu :</td>
+                    <td>@ViewBag.Password</td>
+                </tr>
+                <tr>
+                    <td>Phòng ban:</td>
+                    <td>@ViewBag.Department</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a href="@Url.Action("RegisterEmp","AnhPhu_61134177")">Quay lại</a></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

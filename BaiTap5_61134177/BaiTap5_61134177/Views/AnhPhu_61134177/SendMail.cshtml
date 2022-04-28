@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "SendMail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .wrapper textarea {
+        width: 100%;
+        resize: none;
+        height: 59px;
+        outline: none;
+        padding: 15px;
+        font-size: 16px;
+        margin-top: 10px;
+        border-radius: 5px;
+        max-height: 330px;
+        caret-color: #4671EA;
+        border: 1px solid #bfbfbf;
+    }
+
+    textarea::placeholder {
+        color: #b3b3b3;
+    }
+
+    textarea:is(:focus, :valid) {
+        padding: 14px;
+        border: 2px solid #4671EA;
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 0px;
+    }
+</style>
+
+@Styles.Render("~/Content/css")
+<h3 style="margin-top: -30px">CHỨC NĂNG GỬI EMAIL</h3>
+<div class="container">
+    <form action="/AnhPhu_61134177/SendMail" method="post">
+        <div class="row" style="margin:10px">
+            <div class="col-lg-2">
+                Gửi từ email:
+            </div>
+            <div>
+                <input type="email" name="From" />
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <div class="col-lg-2">
+                Mật khẩu:
+            </div>
+            <div>
+                <input type="text" name="Password" />
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <div class="col-lg-2">
+                Gửi đến email:
+            </div>
+            <div>
+                <input type="email" name="To" />
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <div class="col-lg-2">
+                Tiêu đề:
+            </div>
+            <div>
+                <input type="text" name="Subject" />
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <div class="col-lg-2">
+                Nội dung:
+            </div>
+            <div class="wrapper">
+                <textarea spellcheck="false" placeholder="Nhập nội dung tại đây" required></textarea>
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <input type="submit" value="Gửi email" class="col-lg-offset-2" />
+        </div>
+    </form>
+</div>
+
+<!--tự động resize Textarea-->
+<script>
+    const textarea = document.querySelector("textarea");
+    textarea.addEventListener("keyup", e => {
+        textarea.style.height = "63px";
+        let scHeight = e.target.scrollHeight;
+        textarea.style.height = `${scHeight}px`;
+    });
+</script>

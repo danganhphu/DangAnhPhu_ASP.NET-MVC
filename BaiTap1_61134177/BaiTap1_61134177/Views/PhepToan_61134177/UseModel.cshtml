@@ -1,0 +1,24 @@
+﻿@model BaiTap1_61134177.Models.CalModel
+
+@{
+    ViewBag.Title = "UseModel";
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    <h4>THỰC HIỆN PHÉP TOÁN CƠ BẢN</h4>
+    <div>Nhập a: @Html.EditorFor(model => model.a) </div>
+    <br />
+    <div>Nhập b: @Html.EditorFor(model => model.b) </div>
+
+    <div>
+        Cộng @Html.RadioButtonFor(model => model.pt, "+", new { @checked = "checked" }) &nbsp;
+        Trừ @Html.RadioButtonFor(model => model.pt, "-") &nbsp;
+        Nhân @Html.RadioButtonFor(model => model.pt, "*") &nbsp;
+        Chia @Html.RadioButtonFor(model => model.pt, "/") &nbsp;
+        <input type="submit" value="Tính toán" />
+    </div>
+
+    <div>Kết quả: <input type="text" name="kq" value=@ViewBag.KQ /></div>
+}

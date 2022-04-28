@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "UseFormCollection";
+    Layout = null;
+}
+
+<h4>THỰC HIỆN PHÉP TOÁN CƠ BẢN</h4>
+<form name="f1" action="/PhepToan_61134177/UseFormCollection" method="post">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    Nhập a:
+                    <input type="text" name="a" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nhập b:
+                    <input type="text" name="b" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <input type="radio" checked name="pt" value="+" />Cộng &nbsp;
+        <input type="radio" name="pt" value="-" />Trừ &nbsp;
+        <input type="radio" name="pt" value="*" />Nhân&nbsp;
+        <input type="radio" name="pt" value="/" />Chia&nbsp;
+        <input type="submit" value="Tính toán" />
+    </div>
+    <div>Kết quả: <input type="text" name="kq" value=@ViewBag.KQ /></div>
+</form>

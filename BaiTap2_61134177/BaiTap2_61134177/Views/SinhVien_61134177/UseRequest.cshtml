@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "UseRequest";
+    Layout = null;
+}
+
+<h4>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÍ</h4>
+<table>
+    <tr>
+        <td>Mã sinh viên:  @ViewBag.Id</td>
+    </tr>
+    <tr>
+        <td>Họ và tên:  @ViewBag.Name</td>
+    </tr>
+    <tr>
+        <td>
+            Điểm:  @ViewBag.Marks
+        </td>
+        <td>
+            <a href="@Url.Action("UseRequestIndex","SinhVien_61134177")">Quay lại</a>
+        </td>
+    </tr>
+</table>

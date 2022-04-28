@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "RegisterEmp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>THÔNG TIN THÀNH VIÊN ĐĂNG KÍ</h4>
+<form name="f1" action="/AnhPhu_61134177/Confirm" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Mã số nhân viên</td>
+            <td><input type="text" name="EmpId" size="35" /></td>
+        </tr>
+        <tr>
+            <td>Họ tên</td>
+            <td><input type="text" name="Name" size="35" /></td>
+        </tr>
+        <tr>
+            <td>Ngày sinh</td>
+            <td><input type="date" name="BirthOfDate" size="35" /> </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="Email" size="35" /></td>
+        </tr>
+        <tr>
+            <td> Mật khẩu</td>
+            <td><input type="password" name="Password" size="35" /></td>
+        </tr>
+        <tr>
+            <td>Đơn vị</td>
+            <td><input type="text" name="Department" size="35" /></td>
+        </tr>
+        <tr>
+            <td>Ảnh đại diện</td>
+            <td><input type="file" name="Avatar" size="35" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="Đăng kí" value="Đăng kí" />
+            </td>
+        </tr>
+    </table>
+</form>
