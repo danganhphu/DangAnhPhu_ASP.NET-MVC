@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThiGK_61134177Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CongNhan">
+    <Key>
+      <PropertyRef Name="MaCN" />
+    </Key>
+    <Property Name="MaCN" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoCN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenCN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="SoDT" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaTo" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ToQuanLy">
+    <Key>
+      <PropertyRef Name="MaTo" />
+    </Key>
+    <Property Name="MaTo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenTo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CongNhan_ToQuanLy">
+    <End Role="ToQuanLy" Type="Self.ToQuanLy" Multiplicity="1" />
+    <End Role="CongNhan" Type="Self.CongNhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ToQuanLy">
+        <PropertyRef Name="MaTo" />
+      </Principal>
+      <Dependent Role="CongNhan">
+        <PropertyRef Name="MaTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThiGK_61134177ModelStoreContainer">
+    <EntitySet Name="CongNhan" EntityType="Self.CongNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToQuanLy" EntityType="Self.ToQuanLy" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CongNhan_ToQuanLy" Association="Self.FK_CongNhan_ToQuanLy">
+      <End Role="ToQuanLy" EntitySet="ToQuanLy" />
+      <End Role="CongNhan" EntitySet="CongNhan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

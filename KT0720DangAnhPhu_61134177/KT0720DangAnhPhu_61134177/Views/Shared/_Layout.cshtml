@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+</head>
+<body style="margin-top:0px;">
+    <div id="menu">
+        <div>
+            @Html.ActionLink("Giới thiệu", "../SinhVien0720_61134177/GioiThieu", "", htmlAttributes: new
+           { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("Thêm Mới", "../SinhVien0720_6113417/Create", "", htmlAttributes: new { @class = "a" })
+            &nbsp;|&nbsp;
+            @Html.ActionLink("Danh Sách", "../SinhVien0720_6113417/Index", "", new
+           { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("Tìm Kiếm", "../SinhVien0720_6113417/TimKiem_61134177", new { @class = "a" })
+            <hr style="margin-top:0px;" />
+        </div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        Copyright &copy; @DateTime.Now.Year
+    </div>
+</body>
+</html>

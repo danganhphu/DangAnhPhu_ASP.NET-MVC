@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/styleAdmin.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="menu">
+        <div>
+            @Html.ActionLink("Danh Sách", "../CongNhan_61134177/Index", "", new { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("Tìm Kiếm", "../CongNhan_61134177/TimKiem_61134177", new { @class = "a" })
+            @Html.ActionLink("Thêm Mới", "../CongNhan_61134177/Create", new { @class = "a" })
+            <hr style="margin-top:0px;" />
+        </div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        Copyright &copy; @DateTime.Now.Year
+    </div>
+</body>
+</html>
