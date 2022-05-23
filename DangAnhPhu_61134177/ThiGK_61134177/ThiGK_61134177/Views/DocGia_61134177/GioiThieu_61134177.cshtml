@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "GioiThieu_61134177";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        margin: 0px 25px 20px;
+        font-size: 1.2em;
+        min-width: 400px;
+        border-radius: 6px 6px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .table-caption > b {
+        padding-bottom: 30px;
+        color: #B04120;
+    }
+
+    table th, table td {
+        padding: 12px 15px;
+    }
+
+    .img-circle {
+        border-radius: 50%;
+    }
+
+    .info-cnhan {
+        color: #065C73;
+    }
+
+    p > a {
+        text-decoration: none;
+        font-size: 1.4em;
+    }
+
+        p > a:hover {
+            color: #1080DE;
+        }
+</style>
+
+<table border="1" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <caption class="table-caption"><b>THÔNG TIN Sinh Viên Dự Thi</b></caption>
+                <tr>
+                    <td rowspan="8"><img class="img-circle" src="/images/docgia.png)" width="100" height="100" /></td>
+                    <td class="info-cnhan">Mã số sv:</td>
+                    <td>61134177</td>
+                </tr>
+                <tr>
+                    <td class="info-cnhan">Họ tên sv:</td>
+                    <td>Đặng Anh Phú</td>
+                </tr>
+                <tr>
+                    <td class="info-cnhan">Ngày thi:</td>
+                    <td>23/05/2022</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td class="info-cnhan">Học Phần</td>
+                    <td>phát triển ứng dụng web</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("Về trang tìm kiếm", "Index")
+</p>
