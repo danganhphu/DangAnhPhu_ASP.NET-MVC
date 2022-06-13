@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "TimKiem_61134177";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenCN", rowsPerPage: 2);
+    @Scripts.Render("~/Scripts/jquery-1.6.2.min.js");
+}
+
+<html>
+<head>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("TimKiem_61134177", "SinhVien0720_61134177", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+
+            <table class="table1" align="center">
+                <tr>
+                    <td>Mã sinh viên</td>
+                    <td>
+                        <input type="text" name="MaSV" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Họ tên</td>
+                    <td>
+                        <input type="text" name="HoTen" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" class="btn btn-tk">Tìm kiếm</button>
+                        <button type="reset" class="btn btn-tk" onclick="location.href='@Url.Action("TimKiem_61134177", "SinhVien0720_61134177/TimKiem_61134177")'">Nhập mới</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    <h2>Danh Sách sinh viên hiện có</h2>
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+            tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+            columns: new[]  // colums in grid
+             {
+                grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+                grid.Column("MaSV","Mã sinh viên"), //the model fields to display
+                grid.Column("HoSV","Họ sinh viên"  ),
+                grid.Column("TenSV","Tên sinh viên"),
+                grid.Column("GioiTinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ"),
+                grid.Column("NgaySinh","Ngày sinh",format:@<text> @item.NgaySinh.ToString("dd/MM/yyyy")</text>),
+grid.Column("AnhSV", "Ảnh sinh viên"),
+grid.Column("DiaChi","Địa chỉ"),
+grid.Column("Lop.TenLop","Lớp"),
+grid.Column("", format: (item) => Html.ActionLink("Xem chi tiết", "Details","SinhVien0720_61134177", new { id = item.MaSV,@style="color:#fff;" },"SinhVien0720_61134177Controller")),
+}
+)
+    </div>
+</body>
+</html>
+
+<style type="text/css">
+    a {
+        text-decoration: none;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .webgrid-table {
+        border-collapse: collapse;
+        margin: 25px 20px;
+        font-size: 1.1em;
+        min-width: 400px;
+        border-radius: 6px 6px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+        .webgrid-table thead tr {
+            background-color: #CCCCFF;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .webgrid-table th,
+        .webgrid-table td {
+            padding: 12px 15px;
+        }
+
+            .webgrid-table th a:hover {
+                cursor: pointer;
+                color: rgba(235, 49, 93, 0.8)
+            }
+
+        .webgrid-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .webgrid-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .webgrid-table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+            .webgrid-table tbody tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+
+    .webgrid-header {
+        color: #FFFFFF;
+        padding-bottom: 4px;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    .webgrid-footer {
+        text-align: center;
+    }
+
+        .webgrid-footer a {
+            background-color: #ffffff;
+            color: blue;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            padding: 1px 10px 2px 10px;
+        }
+
+    .grid-footer {
+        background-color: #ffffff;
+        color: #FFAD33;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: lightblue;
+        padding: 3px 7px 2px;
+    }
+
+    .btn-tk {
+        margin-top: 10px;
+    }
+
+        .btn-tk:hover {
+            background-color: rgb(42, 229, 184);
+        }
+</style>

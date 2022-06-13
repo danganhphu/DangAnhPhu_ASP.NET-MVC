@@ -209,12 +209,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\SinhVien0720_61134177\Create.cshtml" />
-    <Content Include="Views\SinhVien0720_61134177\Delete.cshtml" />
     <Content Include="Views\SinhVien0720_61134177\Details.cshtml" />
     <Content Include="Views\SinhVien0720_61134177\Edit.cshtml" />
     <Content Include="Views\SinhVien0720_61134177\Index.cshtml" />
     <Content Include="Views\SinhVien0720_61134177\GioiThieu_61134177.cshtml" />
+    <Content Include="Views\SinhVien0720_61134177\Create.cshtml" />
+    <Content Include="Views\SinhVien0720_61134177\TimKiem_61134177.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

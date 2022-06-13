@@ -107,30 +107,18 @@ namespace KT0720DangAnhPhu_61134177.Controllers
             return View(sinhVien);
         }
 
-        // GET: SinhVien0720_61134177/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult TimKiem_61134177(string maSV = "", string hoTen = "")
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SINHVIEN sinhVien = db.SINHVIEN.Find(id);
-            if (sinhVien == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sinhVien);
-        }
+            ViewBag.maSV = maSV;
+            ViewBag.hoTen = hoTen;
+            var sinhViens = from sv in db.SINHVIEN
+                            where (sv.HoSV + " " + sv.TenSV).Contains(hoTen)
+                            where sv.MaSV.Contains(maSV)
+                            select sv;
+            if (sinhViens.Count() == 0)
+                ViewBag.TB = "Không có thông tin tìm kiếm.";
 
-        // POST: SinhVien0720_61134177/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            SINHVIEN sinhVien = db.SINHVIEN.Find(id);
-            db.SINHVIEN.Remove(sinhVien);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View(sinhViens.ToList());
         }
 
         protected override void Dispose(bool disposing)
